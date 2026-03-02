@@ -1,0 +1,263 @@
+{
+  "snapshot_date": "2026-03-01",
+  "pages": {
+    "cc_skills": {
+      "url": "https://code.claude.com/docs/en/skills",
+      "section_headings": [
+        "Extend Claude with skills",
+        "Bundled skills",
+        "Getting started",
+        "Create your first skill",
+        "Where skills live",
+        "Configure skills",
+        "Types of skill content",
+        "Frontmatter reference",
+        "Add supporting files",
+        "Control who invokes a skill",
+        "Restrict tool access",
+        "Pass arguments to skills",
+        "Advanced patterns",
+        "Inject dynamic context",
+        "Run skills in a subagent",
+        "Restrict Claude's skill access",
+        "Share skills",
+        "Generate visual output",
+        "Troubleshooting",
+        "Skill not triggering",
+        "Skill triggers too often",
+        "Claude doesn't see all my skills",
+        "Related resources"
+      ],
+      "bundled_skills": [
+        "/simplify",
+        "/batch",
+        "/debug"
+      ],
+      "frontmatter_fields": [
+        "name",
+        "description",
+        "argument-hint",
+        "disable-model-invocation",
+        "user-invocable",
+        "allowed-tools",
+        "model",
+        "context",
+        "agent",
+        "hooks"
+      ],
+      "key_content_markers": [
+        "Agent Skills open standard",
+        "context: fork",
+        "SLASH_COMMAND_TOOL_CHAR_BUDGET",
+        "disable-model-invocation: true",
+        "user-invocable: false"
+      ]
+    },
+    "cc_mcp": {
+      "url": "https://code.claude.com/docs/en/mcp",
+      "section_headings": [
+        "Connect Claude Code to tools via MCP",
+        "What you can do with MCP",
+        "Popular MCP servers",
+        "Installing MCP servers",
+        "Option 1: Add a remote HTTP server",
+        "Option 2: Add a remote SSE server",
+        "Option 3: Add a local stdio server",
+        "Managing your servers",
+        "Dynamic tool updates",
+        "Plugin-provided MCP servers",
+        "MCP installation scopes",
+        "Local scope",
+        "Project scope",
+        "User scope",
+        "Choosing the right scope",
+        "Environment variable expansion",
+        "Practical examples",
+        "Authenticate with remote MCP servers",
+        "Use pre-configured OAuth credentials",
+        "Add MCP servers from JSON configuration",
+        "Import MCP servers from Claude Desktop",
+        "Use MCP servers from Claude.ai",
+        "Use Claude Code as an MCP server",
+        "MCP output limits and warnings",
+        "Use MCP resources",
+        "Scale with MCP Tool Search",
+        "Use MCP prompts as commands",
+        "Managed MCP configuration"
+      ],
+      "key_content_markers": [
+        "MAX_MCP_OUTPUT_TOKENS",
+        "managed-mcp.json",
+        "allowedMcpServers",
+        "deniedMcpServers",
+        "ENABLE_TOOL_SEARCH",
+        "claude mcp add-from-claude-desktop",
+        "ENABLE_CLAUDEAI_MCP_SERVERS"
+      ]
+    },
+    "cc_sub_agents": {
+      "url": "https://code.claude.com/docs/en/sub-agents",
+      "section_headings": [
+        "Create custom subagents",
+        "Built-in subagents",
+        "Quickstart: create your first subagent",
+        "Configure subagents",
+        "Choose the subagent scope",
+        "Write subagent files",
+        "Choose a model",
+        "Control subagent capabilities",
+        "Preload skills into subagents",
+        "Enable persistent memory",
+        "Define hooks for subagents",
+        "Work with subagents",
+        "Manage subagent context",
+        "Example subagents"
+      ],
+      "key_content_markers": [
+        "context: fork",
+        "skills field",
+        "permissionMode",
+        "agent teams",
+        "background: true",
+        "isolation: worktree"
+      ]
+    },
+    "cc_hooks": {
+      "url": "https://code.claude.com/docs/en/hooks",
+      "section_headings_sample": [
+        "Hooks reference",
+        "Hook lifecycle",
+        "Hook events",
+        "PreToolUse",
+        "PostToolUse",
+        "Stop",
+        "SubagentStart",
+        "SubagentStop"
+      ],
+      "key_content_markers": [
+        "Hooks in skills and agents",
+        "PreToolUse",
+        "PostToolUse",
+        "SubagentStart",
+        "SubagentStop"
+      ]
+    },
+    "platform_home": {
+      "url": "https://platform.claude.com/docs/en/home",
+      "navigation_cards": [
+        "Get started",
+        "Features overview",
+        "What's new in Claude 4.6",
+        "API reference",
+        "Claude Console",
+        "Release notes",
+        "Claude Code quickstart",
+        "Claude Code reference",
+        "Claude Code changelog",
+        "Anthropic Courses",
+        "Claude Cookbook",
+        "Claude Quickstarts"
+      ]
+    },
+    "platform_overview": {
+      "url": "https://platform.claude.com/docs/en/build-with-claude/overview",
+      "feature_tables": {
+        "model_capabilities": [
+          "1M token context window",
+          "Adaptive thinking",
+          "Batch processing",
+          "Citations",
+          "Data residency",
+          "Effort",
+          "Extended thinking",
+          "PDF support",
+          "Search results",
+          "Structured outputs"
+        ],
+        "server_side_tools": [
+          "Code execution",
+          "Memory",
+          "Web fetch",
+          "Web search"
+        ],
+        "client_side_tools": [
+          "Bash",
+          "Computer use",
+          "Text editor"
+        ],
+        "tool_infrastructure": [
+          "Agent Skills",
+          "Fine-grained tool streaming",
+          "MCP connector",
+          "Programmatic tool calling",
+          "Tool search"
+        ],
+        "context_management": [
+          "Compaction",
+          "Context editing",
+          "Automatic prompt caching",
+          "Prompt caching (5m)",
+          "Prompt caching (1hr)",
+          "Token counting"
+        ],
+        "files_and_assets": [
+          "Files API"
+        ]
+      }
+    },
+    "academy_mcp": {
+      "url": "https://www.anthropic.com/learn",
+      "featured_courses": [
+        "Claude Code in Action",
+        "Claude 101"
+      ],
+      "learning_sections": [
+        "Build with Claude",
+        "Claude for Work",
+        "Claude for Personal"
+      ],
+      "note": "Academy content behind Skilljar LMS — monitor landing page for course changes"
+    },
+    "cc_memory": {
+      "url": "https://code.claude.com/docs/en/memory",
+      "section_headings_sample": [
+        "How Claude remembers your project",
+        "CLAUDE.md",
+        "Load from additional directories"
+      ],
+      "key_content_markers": [
+        "CLAUDE.md",
+        "CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD"
+      ]
+    },
+    "cc_plugins": {
+      "url": "https://code.claude.com/docs/en/plugins",
+      "section_headings_sample": [
+        "Create plugins",
+        "Plugin skills",
+        "Plugin MCP servers"
+      ],
+      "key_content_markers": [
+        "plugin.json",
+        "skills/",
+        "agents/"
+      ]
+    },
+    "cc_docs_index": {
+      "url": "https://code.claude.com/docs/llms.txt",
+      "page_count": 59,
+      "page_titles_sample": [
+        "Orchestrate teams of Claude Code sessions",
+        "Claude Code on Amazon Bedrock",
+        "Track team usage with analytics",
+        "Authentication",
+        "Best Practices for Claude Code",
+        "Extend Claude with skills",
+        "Connect Claude Code to tools via MCP",
+        "Create custom subagents",
+        "Hooks reference",
+        "Create plugins"
+      ]
+    }
+  }
+}

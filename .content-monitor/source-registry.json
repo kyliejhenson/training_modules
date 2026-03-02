@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "description": "Maps each content file back to its upstream source URL and section. Used by the change-detection monitor to trace upstream changes to affected content files.",
+    "last_updated": "2026-03-01",
+    "sources": {
+      "claude_code_docs": "https://code.claude.com/docs/en/",
+      "anthropic_learn": "https://www.anthropic.com/learn",
+      "platform_docs": "https://platform.claude.com/docs/en/"
+    }
+  },
+  "source_pages": [
+    {
+      "id": "cc_skills",
+      "url": "https://code.claude.com/docs/en/skills",
+      "title": "Extend Claude with skills",
+      "content_feature": "content_skills",
+      "affected_files": [
+        "01_Overview/01_what_are_skills.md",
+        "01_Overview/02_where_skills_live.md",
+        "01_Overview/03_skill_directory_structure.md",
+        "01_Overview/04_automatic_discovery_nested_directories.md",
+        "01_Overview/05_when_to_use_skills.md",
+        "01_Overview/06_how_skill_matching_works.md",
+        "02_Bundled_Skills/01_simplify_skill.md",
+        "02_Bundled_Skills/02_batch_skill.md",
+        "03_Getting_Started/01_create_your_first_skill.md",
+        "04_Configuration/01_types_of_skill_content.md",
+        "04_Configuration/02_frontmatter_reference.md",
+        "04_Configuration/03_string_substitutions.md",
+        "04_Configuration/04_adding_supporting_files.md",
+        "04_Configuration/05_control_who_invokes_a_skill.md",
+        "04_Configuration/06_restrict_tool_access.md",
+        "04_Configuration/07_passing_arguments_to_skills.md",
+        "04_Configuration/08_using_scripts_efficiently.md",
+        "05_Advanced_Patterns/01_inject_dynamic_context.md",
+        "05_Advanced_Patterns/02_run_skills_in_a_subagent.md",
+        "05_Advanced_Patterns/03_restrict_claude_skill_access.md",
+        "05_Advanced_Patterns/04_generate_visual_output.md",
+        "06_Sharing_and_Distribution/01_sharing_skills.md",
+        "06_Sharing_and_Distribution/02_enterprise_managed_settings.md",
+        "06_Sharing_and_Distribution/03_skills_and_subagents.md",
+        "07_Troubleshooting/01_skill_not_triggering.md",
+        "07_Troubleshooting/02_skill_triggers_too_often.md",
+        "07_Troubleshooting/03_claude_doesnt_see_all_skills.md",
+        "07_Troubleshooting/04_skills_validator.md",
+        "07_Troubleshooting/05_skill_doesnt_load.md",
+        "07_Troubleshooting/06_wrong_skill_gets_used.md",
+        "07_Troubleshooting/07_skill_priority_conflicts.md",
+        "07_Troubleshooting/08_plugin_skills_not_appearing.md",
+        "07_Troubleshooting/09_runtime_errors.md",
+        "07_Troubleshooting/10_quick_troubleshooting_checklist.md"
+      ],
+      "sections_monitored": [
+        "Bundled skills",
+        "Getting started",
+        "Configure skills",
+        "Advanced patterns",
+        "Share skills",
+        "Troubleshooting"
+      ]
+    },
+    {
+      "id": "cc_mcp",
+      "url": "https://code.claude.com/docs/en/mcp",
+      "title": "Connect Claude Code to tools via MCP",
+      "content_feature": "content_mcp",
+      "affected_files": [
+        "01_Overview/01_what_is_mcp.md",
+        "01_Overview/02_what_you_can_do_with_mcp.md",
+        "01_Overview/03_popular_mcp_servers.md",
+        "02_Installation/01_adding_remote_http_server.md",
+        "02_Installation/02_adding_remote_sse_server.md",
+        "02_Installation/03_adding_local_stdio_server.md",
+        "02_Installation/04_managing_mcp_servers.md",
+        "02_Installation/05_dynamic_tool_updates.md",
+        "02_Installation/06_windows_specific_setup.md",
+        "02_Installation/07_adding_mcp_from_json.md",
+        "02_Installation/08_importing_from_claude_desktop.md",
+        "02_Installation/09_using_mcp_from_claude_ai.md",
+        "03_Configuration/01_installation_scopes_overview.md",
+        "03_Configuration/02_local_scope.md",
+        "03_Configuration/03_project_scope.md",
+        "03_Configuration/04_user_scope.md",
+        "03_Configuration/05_choosing_the_right_scope.md",
+        "03_Configuration/06_environment_variable_expansion.md",
+        "04_Authentication/01_oauth_authentication.md",
+        "04_Authentication/02_preconfigured_oauth_credentials.md",
+        "05_Advanced_Features/01_plugin_provided_mcp_servers.md",
+        "05_Advanced_Features/02_claude_code_as_mcp_server.md",
+        "05_Advanced_Features/03_mcp_output_limits.md",
+        "05_Advanced_Features/04_using_mcp_resources.md",
+        "05_Advanced_Features/05_mcp_tool_search.md",
+        "05_Advanced_Features/06_mcp_prompts_as_commands.md",
+        "06_Enterprise_Management/01_managed_mcp_overview.md",
+        "06_Enterprise_Management/02_exclusive_control_managed_mcp.md",
+        "06_Enterprise_Management/03_policy_based_control.md",
+        "07_Practical_Examples/01_monitor_errors_with_sentry.md",
+        "07_Practical_Examples/02_connect_to_github.md",
+        "07_Practical_Examples/03_query_postgresql.md"
+      ],
+      "sections_monitored": [
+        "What you can do with MCP",
+        "Popular MCP servers",
+        "Installing MCP servers",
+        "MCP installation scopes",
+        "Practical examples",
+        "Authenticate with remote MCP servers",
+        "Managed MCP configuration"
+      ]
+    },
+    {
+      "id": "cc_sub_agents",
+      "url": "https://code.claude.com/docs/en/sub-agents",
+      "title": "Create custom subagents",
+      "content_feature": "content_skills",
+      "affected_files": [
+        "05_Advanced_Patterns/02_run_skills_in_a_subagent.md",
+        "06_Sharing_and_Distribution/03_skills_and_subagents.md",
+        "08_Comparison/02_skills_vs_subagents.md"
+      ],
+      "sections_monitored": ["Preload skills into subagents", "Custom subagents"]
+    },
+    {
+      "id": "cc_hooks",
+      "url": "https://code.claude.com/docs/en/hooks",
+      "title": "Hooks reference",
+      "content_feature": "content_skills",
+      "affected_files": [
+        "08_Comparison/03_skills_vs_hooks.md"
+      ],
+      "sections_monitored": ["Hooks in skills and agents"]
+    },
+    {
+      "id": "cc_memory",
+      "url": "https://code.claude.com/docs/en/memory",
+      "title": "How Claude remembers your project",
+      "content_feature": "content_skills",
+      "affected_files": [
+        "08_Comparison/01_claude_md_vs_skills.md"
+      ],
+      "sections_monitored": ["CLAUDE.md"]
+    },
+    {
+      "id": "cc_plugins",
+      "url": "https://code.claude.com/docs/en/plugins",
+      "title": "Create plugins",
+      "content_feature": "content_skills",
+      "affected_files": [
+        "08_Comparison/04_mcp_servers_vs_skills.md",
+        "08_Comparison/05_combining_features.md"
+      ],
+      "sections_monitored": ["Plugin skills"]
+    },
+    {
+      "id": "academy_mcp",
+      "url": "https://www.anthropic.com/learn",
+      "title": "Anthropic Academy — Introduction to MCP",
+      "content_feature": "content_mcp",
+      "affected_files": [
+        "08_MCP_Fundamentals/01_what_is_mcp_protocol.md",
+        "08_MCP_Fundamentals/02_the_problem_mcp_solves.md",
+        "08_MCP_Fundamentals/03_how_mcp_works.md",
+        "08_MCP_Fundamentals/04_mcp_servers_explained.md",
+        "08_MCP_Fundamentals/05_mcp_vs_direct_api_calls.md",
+        "09_MCP_Clients/01_mcp_client_role.md",
+        "09_MCP_Clients/02_transport_agnostic_communication.md",
+        "09_MCP_Clients/03_mcp_message_types.md",
+        "09_MCP_Clients/04_end_to_end_request_flow.md",
+        "09_MCP_Clients/05_project_setup.md",
+        "09_MCP_Clients/06_client_architecture.md",
+        "09_MCP_Clients/07_implementing_list_and_call_tools.md",
+        "09_MCP_Clients/08_testing_complete_flow.md",
+        "10_Building_MCP_Servers/01_initializing_server_with_sdk.md",
+        "10_Building_MCP_Servers/02_defining_tools_with_decorators.md",
+        "10_Building_MCP_Servers/03_building_an_edit_tool.md",
+        "10_Building_MCP_Servers/04_sdk_approach_benefits.md",
+        "10_Building_MCP_Servers/05_server_inspector.md",
+        "10_Building_MCP_Servers/06_inspector_development_workflow.md",
+        "11_Resources/01_what_are_mcp_resources.md",
+        "11_Resources/02_direct_resources.md",
+        "11_Resources/03_templated_resources.md",
+        "11_Resources/04_resource_mime_types.md",
+        "11_Resources/05_testing_resources_with_inspector.md",
+        "11_Resources/06_implementing_client_resource_reading.md",
+        "11_Resources/07_resource_ux_in_cli.md",
+        "12_Prompts/01_what_are_mcp_prompts.md",
+        "12_Prompts/02_defining_prompts_with_decorators.md",
+        "12_Prompts/03_prompt_benefits.md",
+        "12_Prompts/04_implementing_client_prompt_functions.md",
+        "12_Prompts/05_prompt_workflow.md",
+        "13_MCP_Primitives_Review/01_tools_model_controlled.md",
+        "13_MCP_Primitives_Review/02_resources_app_controlled.md",
+        "13_MCP_Primitives_Review/03_prompts_user_controlled.md",
+        "13_MCP_Primitives_Review/04_choosing_the_right_primitive.md"
+      ],
+      "sections_monitored": [
+        "Introduction to Model Context Protocol course"
+      ],
+      "note": "Academy content is behind Skilljar LMS. Monitor the /learn landing page for course structure changes, and re-check course content periodically."
+    },
+    {
+      "id": "platform_home",
+      "url": "https://platform.claude.com/docs/en/home",
+      "title": "Claude Developer Platform — Home",
+      "content_feature": null,
+      "affected_files": [],
+      "sections_monitored": [
+        "Claude Developer Platform card list",
+        "Claude Code card list",
+        "Learning resources card list"
+      ],
+      "note": "Landing page — monitor for new features, renamed pages, or restructured navigation that may signal upstream doc changes."
+    },
+    {
+      "id": "platform_overview",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/overview",
+      "title": "Features overview",
+      "content_feature": null,
+      "affected_files": [],
+      "sections_monitored": [
+        "Model capabilities table",
+        "Tools table",
+        "Tool infrastructure table",
+        "Context management table",
+        "Files and assets table"
+      ],
+      "note": "Monitor for new API features that may warrant new training content."
+    }
+  ]
+}

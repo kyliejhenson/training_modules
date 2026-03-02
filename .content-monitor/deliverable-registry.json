@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "description": "Maps each deliverable PPTX to the content sections and slides that use them. Auto-populated by generate-training; consumed by content-refresh to trace content changes to affected deliverables.",
+    "last_updated": "2026-03-02",
+    "note": "Registry cleaned: removed stale SE entry (deck not yet generated), corrected Developers section paths after content reorganization, separated training-generated sections."
+  },
+  "deliverables": [
+    {
+      "file": "Deliverables/Training_Skills_Developers.pptx",
+      "feature": "content_skills",
+      "profile": "Developers",
+      "generated_date": "2026-03-01",
+      "sources_manifest": "Deliverables/Training_Skills_Developers_Sources.md",
+      "total_slides": 35,
+      "content_map": [
+        {"section": "01_Overview/01_what_are_skills.md", "slides": [6], "usage": "Core definition of skills on Key Concepts slide"},
+        {"section": "01_Overview/02_where_skills_live.md", "slides": [6, 7], "usage": "Skill locations and resolution chain on Key Concepts and When to Use Skills slides"},
+        {"section": "01_Overview/03_skill_directory_structure.md", "slides": [8, 10], "usage": "Directory structure on Where Skills Live and Directory Structure slides"},
+        {"section": "01_Overview/06_how_skill_matching_works.md", "slides": [9], "usage": "How matching works on Key Concepts slide"},
+        {"section": "01_Overview/05_when_to_use_skills.md", "slides": [7], "usage": "When to use skills on Skills fundamentals"},
+        {"section": "04_Configuration/01_types_of_skill_content.md", "slides": [14], "usage": "Content types on Key Concepts slide"},
+        {"section": "04_Configuration/02_frontmatter_reference.md", "slides": [15], "usage": "Frontmatter fields on Code/Demo slide"},
+        {"section": "04_Configuration/03_string_substitutions.md", "slides": [16], "usage": "String substitutions on Code/Demo slide"},
+        {"section": "03_Getting_Started/01_create_your_first_skill.md", "slides": [13], "usage": "Step-by-step creation walkthrough"},
+        {"section": "04_Configuration/07_passing_arguments_to_skills.md", "slides": [17], "usage": "Arguments and variables on Key Concepts slide"},
+        {"section": "05_Advanced_Patterns/01_inject_dynamic_context.md", "slides": [26], "usage": "Dynamic context injection on Code/Demo slide"},
+        {"section": "05_Advanced_Patterns/02_run_skills_in_a_subagent.md", "slides": [27], "usage": "Subagent execution on Code/Demo slide"},
+        {"section": "04_Configuration/05_control_who_invokes_a_skill.md", "slides": [20, 21], "usage": "Permission model on Access Control and Permission Rules slides"},
+        {"section": "04_Configuration/06_restrict_tool_access.md", "slides": [20, 21], "usage": "Tool restrictions on Access Control and Permission Rules slides"},
+        {"section": "06_Sharing_and_Distribution/02_enterprise_managed_settings.md", "slides": [22], "usage": "Enterprise managed settings on Code/Demo slide"},
+        {"section": "07_Troubleshooting/01_skill_not_triggering.md", "slides": [32], "usage": "Troubleshooting on Step-by-Step slide"},
+        {"section": "07_Troubleshooting/02_skill_triggers_too_often.md", "slides": [32], "usage": "Troubleshooting on Step-by-Step slide"},
+        {"section": "07_Troubleshooting/04_skills_validator.md", "slides": [32], "usage": "Skills validator on Step-by-Step slide"},
+        {"section": "08_Comparison/01_claude_md_vs_skills.md", "slides": [31], "usage": "Comparison with other features on Comparison slide"},
+        {"section": "08_Comparison/02_skills_vs_subagents.md", "slides": [31], "usage": "Comparison with other features on Comparison slide"},
+        {"section": "08_Comparison/03_skills_vs_hooks.md", "slides": [31], "usage": "Comparison with other features on Comparison slide"},
+        {"section": "02_Bundled_Skills/01_simplify_skill.md", "slides": [8], "usage": "Built-in skills overview"},
+        {"section": "02_Bundled_Skills/02_batch_skill.md", "slides": [8], "usage": "Built-in skills overview"}
+      ],
+      "generated_sections": [
+        {"id": "warm_up_self_assessment", "slides": [4], "usage": "Warm-up self-assessment on opening slide", "note": "Training-generated, no source content file"},
+        {"id": "overview_knowledge_check", "slides": [11], "usage": "Multiple choice knowledge check", "note": "Training-generated"},
+        {"id": "structure_hands_on_check", "slides": [18], "usage": "Hands-on knowledge check with practical exercise", "note": "Training-generated"},
+        {"id": "advanced_mini_exercise", "slides": [23], "usage": "Hands-on practice on mini-exercise slide", "note": "Training-generated"},
+        {"id": "security_knowledge_check", "slides": [24], "usage": "True/False knowledge check on Security section", "note": "Training-generated"},
+        {"id": "before_after_patterns", "slides": [28], "usage": "Before/after patterns on Key Concepts slide", "note": "Training-generated from multiple sources"},
+        {"id": "discussion", "slides": [33], "usage": "Discussion and Q&A slide", "note": "Training-generated"},
+        {"id": "takeaways", "slides": [34], "usage": "Reflection and takeaways on closing slides", "note": "Training-generated"},
+        {"id": "resources_closing", "slides": [35], "usage": "Resources and closing slide", "note": "Training-generated"}
+      ]
+    }
+  ]
+}
