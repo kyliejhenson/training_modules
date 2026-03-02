@@ -11,7 +11,7 @@ This skill produces a comprehensive, branded Facilitator Guide as a Word documen
 
 Before doing anything else, read these skills (check available skills for paths):
 
-1. **pptx SKILL.md** — You need the pptx skill's reading tools (`markitdown`, `thumbnail.py`) to extract content from the input presentation
+1. **pptx SKILL.md** — You need the pptx skill's reading tools (`markitdown`) to extract content from the input presentation
 2. **docx SKILL.md** — You need the docx skill's creation workflow (`docx-js`) to build the output Word document
 3. **brand-guidelines SKILL.md** — You need Anthropic's brand colors and typography to style the output
 
@@ -19,7 +19,7 @@ Also read **TEMPLATE_GUIDE.md** in the workspace root — it contains the slide 
 
 ---
 
-## Step 1: Extract Content and Generate Slide Images
+## Step 1: Extract Content
 
 ### Read the Presentation
 
@@ -28,13 +28,7 @@ Use the pptx skill's reading tools to extract everything from the input .pptx:
 ```bash
 # Extract all text content including presenter notes
 python -m markitdown input_training.pptx
-
-# Generate individual slide images for embedding in the guide
-python scripts/office/soffice.py --headless --convert-to pdf input_training.pptx
-pdftoppm -jpeg -r 150 input_training.pdf slide
 ```
-
-This produces `slide-01.jpg`, `slide-02.jpg`, etc. — one image per slide. These images will be embedded directly into the facilitator guide so the facilitator can see exactly what participants see on screen.
 
 ### Build a Slide Map
 
@@ -43,10 +37,8 @@ Parse the markitdown output into a structured slide map. **Every single slide in
 For each slide, capture:
 
 - **Slide number** (1 through N, where N is the total slide count)
-- **Slide image path** — the corresponding `slide-XX.jpg` file generated above
 - **Slide type** — identify which template slide type it is (Title, Agenda, Learning Objectives, Section Divider, Key Concepts, Full-Screen Image, Step-by-Step Process, Video Tutorial, Code/Demo, Comparison, Knowledge Check variants, Reflection, Key Takeaways, Resources & Next Steps, Closing). Use TEMPLATE_GUIDE.md's slide inventory as your reference.
 - **Presenter notes** — the full, verbatim notes text from the slide. Copy these exactly as they appear — do not paraphrase, summarize, or truncate.
-- **Images/media** — note any images, videos, or diagrams referenced
 
 After building the map, verify the count: the number of entries in your slide map must equal the number of slides in the deck. If they don't match, you've missed slides — go back and find them. A facilitator who discovers missing slides in the guide will lose trust in the entire document.
 
@@ -89,25 +81,22 @@ Each slide's section in the guide should include these elements:
 #### 1. Slide Header
 Format: **Slide [N]: [Slide Title]** with the slide type in parentheses.
 
-#### 2. Slide Image
-Embed the slide image (`slide-XX.jpg`) directly in the document using an `ImageRun`. Size it to fit comfortably within the page margins — roughly 6.5 inches wide (9360 DXA) scaled proportionally. This gives the facilitator an instant visual reference for exactly what participants will see on screen, which is far more useful than a text description. The facilitator can glance at the image and immediately orient themselves to the right moment in the deck.
-
-#### 3. Presenter Notes (from the deck)
+#### 2. Presenter Notes (from the deck)
 Include the **complete, verbatim** presenter notes from the .pptx. These are the talking points and instructions the deck author wrote. Present them in a visually distinct block — use a table cell with a light gray background (`#E8E6DC`) or an indented style — so the facilitator can instantly distinguish the original deck notes from the additional facilitation guidance that follows.
 
 Do not paraphrase, summarize, or edit these notes. The facilitator needs to see exactly what the deck author intended. If the notes are empty for a particular slide, state "No presenter notes in the deck for this slide."
 
-#### 4. Additional Facilitation Tips
+#### 3. Additional Facilitation Tips
 This is where the guide adds value beyond what's already in the deck. Provide supplementary guidance that builds on the presenter notes — context the deck author didn't include, audience-specific adjustments, warnings about common stumbling points, or deeper explanation of why a concept matters.
 
 Frame these clearly as *additions* to the notes, not replacements. Use language like "In addition to the notes above..." or "To build on this..." The facilitator should understand that the presenter notes are the foundation and these tips are the enhancement layer.
 
-#### 5. Key Concepts to Emphasize
+#### 4. Key Concepts to Emphasize
 Identify the 2-4 most important ideas on this slide and explain *why* they matter. This isn't just repeating the slide content — it's helping the facilitator understand what the audience absolutely must walk away understanding from this moment in the training.
 
 Think about it from the perspective of adult learning theory: adults learn best when they understand the relevance of what they're learning. So for each key concept, briefly connect it to the audience's real work. For a Developers audience, that might be "This matters because it changes how you structure API calls." For Enterprise Champions, it might be "This is the feature your stakeholders will ask about first."
 
-#### 6. Facilitation Tactics
+#### 5. Facilitation Tactics
 Concrete, actionable guidance on *how* to deliver this slide effectively. This varies significantly by slide type (see the Slide Type Facilitation Patterns section below), but always consider:
 
 - **Pacing**: How long to spend on this slide. Be specific ("Spend 2-3 minutes here" not "don't rush").
@@ -115,7 +104,7 @@ Concrete, actionable guidance on *how* to deliver this slide effectively. This v
 - **Voice and energy**: Where should emphasis fall? Should the tone shift here (e.g., slowing down for a complex concept, building energy before an activity)?
 - **Common pitfalls**: What tends to go wrong when facilitating this type of content? (e.g., "Participants often get stuck on X — preempt this by clarifying Y before showing the slide")
 
-#### 7. Audience Engagement
+#### 6. Audience Engagement
 Specific prompts and techniques to keep participants active. Adults disengage when they're passive for too long — the research is clear that engagement every 8-10 minutes is the minimum. Include:
 
 - **Questions to ask**: Write the exact questions, not just "ask a question." For example: "Before I show the next step, what do you think happens when the model receives a tool result?" Direct questions get better responses than "any questions?"
@@ -123,7 +112,7 @@ Specific prompts and techniques to keep participants active. Adults disengage wh
 - **Show of hands / polls**: Quick temperature checks ("How many of you have tried this before?")
 - **Real-world connections**: Prompts that invite participants to connect the content to their own experience ("Think of a time when you needed to...")
 
-#### 8. Transitions
+#### 7. Transitions
 How to smoothly move from this slide to the next one. Write the actual transition language — a sentence or two the facilitator can say (or adapt) to bridge topics. Good transitions reinforce what was just covered and preview what's coming.
 
 ### Slide Type Facilitation Patterns
@@ -353,8 +342,6 @@ SLIDE 3: Learning Objectives                  ⏱ 2-3 min
 (Learning Objectives slide)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[EMBEDDED SLIDE IMAGE — slide-03.jpg, ~6.5" wide]
-
 PRESENTER NOTES (from the deck)
 ┃ [Complete, verbatim presenter notes from the .pptx,
 ┃ in a gray-background block so they're visually distinct]
@@ -379,7 +366,7 @@ TRANSITION → NEXT SLIDE
 "[Transition language to bridge to the next slide]"
 ```
 
-This layout should be achieved through a combination of heading styles, embedded images (via `ImageRun`), bordered text boxes (using table cells with accent-colored left borders), and consistent spacing. The presenter notes block uses a gray background to visually separate the deck author's original notes from the guide's added facilitation content. The goal is a document that a facilitator can glance at mid-session and immediately find what they need.
+This layout should be achieved through a combination of heading styles, bordered text boxes (using table cells with accent-colored left borders), and consistent spacing. The presenter notes block uses a gray background to visually separate the deck author's original notes from the guide's added facilitation content. The goal is a document that a facilitator can glance at mid-session and immediately find what they need.
 
 ### Naming Convention
 
@@ -397,12 +384,11 @@ training decks are stored). If the `Deliverables/` folder doesn't exist, create 
 ## Step 7: Quality Assurance
 
 ### Content QA
-1. **Completeness check — this is the most important QA step**: Count the total slides in the .pptx (use markitdown output or the slide images). Count the slide sections in the guide. These numbers must be identical. If the deck has 28 slides, the guide must have exactly 28 slide sections — no more, no fewer. Open the .docx and verify slide sections exist for slide 1 through slide N with no gaps.
-2. **Image check**: Verify that each slide section contains an embedded slide image. Spot-check that the images correspond to the correct slides (the slide 5 section should show the slide 5 image, not slide 6).
-3. **Notes fidelity**: Compare the presenter notes in the guide against the raw markitdown output from the .pptx. The notes in the guide should be verbatim — not paraphrased, not summarized, not truncated. Check at least 3-4 slides to confirm.
-4. **Additional tips distinction**: Verify that the "Additional Facilitation Tips" content is clearly separated from the presenter notes, both visually (different styling) and in language (should reference or build on the notes, not repeat them).
-5. **Audience alignment**: Verify the facilitation guidance matches the identified audience profile. Developer-focused guides shouldn't have selling language; Champion-focused guides shouldn't have deep code walkthroughs.
-6. **Timing sanity**: Add up all the per-slide timing estimates and compare to the total estimated duration in the front matter. They should be within 5 minutes of each other.
+1. **Completeness check — this is the most important QA step**: Count the total slides in the .pptx (use markitdown output). Count the slide sections in the guide. These numbers must be identical. If the deck has 28 slides, the guide must have exactly 28 slide sections — no more, no fewer. Open the .docx and verify slide sections exist for slide 1 through slide N with no gaps.
+2. **Notes fidelity**: Compare the presenter notes in the guide against the raw markitdown output from the .pptx. The notes in the guide should be verbatim — not paraphrased, not summarized, not truncated. Check at least 3-4 slides to confirm.
+3. **Additional tips distinction**: Verify that the "Additional Facilitation Tips" content is clearly separated from the presenter notes, both visually (different styling) and in language (should reference or build on the notes, not repeat them).
+4. **Audience alignment**: Verify the facilitation guidance matches the identified audience profile. Developer-focused guides shouldn't have selling language; Champion-focused guides shouldn't have deep code walkthroughs.
+5. **Timing sanity**: Add up all the per-slide timing estimates and compare to the total estimated duration in the front matter. They should be within 5 minutes of each other.
 
 ### Visual QA
 Convert the .docx to images and inspect:
@@ -413,7 +399,6 @@ pdftoppm -jpeg -r 150 output.pdf page
 ```
 
 Check for:
-- **Slide images render correctly** — each slide section should show a clear, properly sized thumbnail of the actual slide
 - Consistent heading styles throughout
 - Proper brand colors on accent elements
 - Presenter notes blocks are visually distinct (gray background) from the additional facilitation tips

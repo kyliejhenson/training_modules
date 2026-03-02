@@ -91,11 +91,27 @@ Media insertion uses `insert_media.py` from the add-training-media skill with a 
 
 ## Content Drift Monitoring & Refresh
 
-Source URLs are registered in `.content-monitor/source-registry.json`, mapping each upstream page to the content files it feeds. Baselines are stored in `.content-monitor/baseline-snapshot.json`.
+Source URLs are registered in `.content-monitor/source-registry.json`, mapping each upstream page to the content files it feeds. Each source page has a `refresh_priority` (critical/normal/low) that controls which pages are checked during different refresh modes. Baselines are stored in `.content-monitor/baseline-snapshot.json`.
+
+### Refresh Priority
+
+Each source page is assigned a priority based on its impact on the learning experience:
+
+- **critical** — Impacts how the learner will actually understand the content and if the content still makes sense (e.g., core feature docs like skills and MCP)
+- **normal** — Updates that will not impact complete understanding but may impact breadth or accuracy (e.g., sub-agents, hooks, memory, plugins)
+- **low** — Light changes that don't impact learning experience (e.g., landing pages, navigation-only pages)
+
+The scripts support a `--priority` flag that is cumulative: `--priority critical` checks only critical pages, `--priority normal` checks critical + normal, and omitting the flag checks everything. The content-refresh skill asks which refresh mode to use at the start of each run: quick (critical only), standard (critical + normal), or full (all pages).
+
+### Refresh Workflow
 
 The deliverable registry (`.content-monitor/deliverable-registry.json`) maps each training PPTX to the content sections and slides that use them. It is auto-populated by generate-training (Step 7c) whenever a new deck is built. The content-refresh skill reads this registry to trace content changes through to affected deliverables and suggest slide-level updates.
 
-The typical refresh workflow is: run **content-refresh** → review and accept content diffs → review and accept deliverable slide updates. If no drift is detected, content-refresh exits early. After substantial text updates to deliverables, consider re-running **add-training-media** on affected decks to verify image-to-slide matching is still accurate.
+The typical refresh workflow is: run **content-refresh** → select refresh mode → review and accept content diffs → review and accept deliverable slide updates. If no drift is detected, content-refresh exits early. After substantial text updates to deliverables, consider re-running **add-training-media** on affected decks to verify image-to-slide matching is still accurate.
+
+### Rollback
+
+The content-refresh skill creates git checkpoint commits before and after each stage, so any update can be reverted without regenerating from scratch. Commits use the prefix `content-refresh:` and follow a structured naming convention (e.g., `content-refresh: pre-stage-1 snapshot`, `content-refresh: stage-1 complete — updated N content sections`). Baseline snapshot updates are committed separately from content changes, so reverting content doesn't also revert the baseline (avoiding re-detection of the same drift). To find checkpoints: `git log --oneline --grep="content-refresh:" -10`. To revert a stage: `git revert <commit-hash>`. See the Rollback section in the content-refresh SKILL.md for detailed procedures.
 
 ## End-to-End Orchestration Guide
 
@@ -123,11 +139,14 @@ All final deliverables go to `Deliverables/`.
 ### Content Maintenance (ongoing)
 
 ```
-content-refresh              Detects drift, updates content sections,
-                             propagates changes to deliverables
+content-refresh              Select refresh mode (quick/standard/full),
+                             detect drift, update content sections,
+                             propagate changes to deliverables
        ↓ (if slides changed substantially)
 add-training-media           Re-verify image matching on updated decks
 ```
+
+Recommended cadence: quick refresh (critical only) mid-week, standard refresh (critical + normal) weekly, full refresh monthly or when structural changes are suspected.
 
 Run content-refresh periodically (weekly recommended) or whenever upstream docs are known to have changed. If content-refresh updates slide text on a deck, consider re-running add-training-media to check whether images still match the new content.
 

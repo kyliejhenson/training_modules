@@ -1,7 +1,12 @@
 {
   "metadata": {
     "description": "Maps each content file back to its upstream source URL and section. Used by the change-detection monitor to trace upstream changes to affected content files.",
-    "last_updated": "2026-03-01",
+    "last_updated": "2026-03-02",
+    "refresh_priority_definitions": {
+      "critical": "Impacts how the learner will actually understand the content and if the content still makes sense",
+      "normal": "Updates that will not impact complete understanding but may impact breadth or accuracy",
+      "low": "Light changes that don't impact learning experience"
+    },
     "sources": {
       "claude_code_docs": "https://code.claude.com/docs/en/",
       "anthropic_learn": "https://www.anthropic.com/learn",
@@ -13,6 +18,7 @@
       "id": "cc_skills",
       "url": "https://code.claude.com/docs/en/skills",
       "title": "Extend Claude with skills",
+      "refresh_priority": "critical",
       "content_feature": "content_skills",
       "affected_files": [
         "01_Overview/01_what_are_skills.md",
@@ -63,6 +69,7 @@
       "id": "cc_mcp",
       "url": "https://code.claude.com/docs/en/mcp",
       "title": "Connect Claude Code to tools via MCP",
+      "refresh_priority": "critical",
       "content_feature": "content_mcp",
       "affected_files": [
         "01_Overview/01_what_is_mcp.md",
@@ -112,6 +119,7 @@
       "id": "cc_sub_agents",
       "url": "https://code.claude.com/docs/en/sub-agents",
       "title": "Create custom subagents",
+      "refresh_priority": "normal",
       "content_feature": "content_skills",
       "affected_files": [
         "05_Advanced_Patterns/02_run_skills_in_a_subagent.md",
@@ -124,6 +132,7 @@
       "id": "cc_hooks",
       "url": "https://code.claude.com/docs/en/hooks",
       "title": "Hooks reference",
+      "refresh_priority": "normal",
       "content_feature": "content_skills",
       "affected_files": [
         "08_Comparison/03_skills_vs_hooks.md"
@@ -134,6 +143,7 @@
       "id": "cc_memory",
       "url": "https://code.claude.com/docs/en/memory",
       "title": "How Claude remembers your project",
+      "refresh_priority": "normal",
       "content_feature": "content_skills",
       "affected_files": [
         "08_Comparison/01_claude_md_vs_skills.md"
@@ -144,6 +154,7 @@
       "id": "cc_plugins",
       "url": "https://code.claude.com/docs/en/plugins",
       "title": "Create plugins",
+      "refresh_priority": "normal",
       "content_feature": "content_skills",
       "affected_files": [
         "08_Comparison/04_mcp_servers_vs_skills.md",
@@ -155,6 +166,7 @@
       "id": "academy_mcp",
       "url": "https://www.anthropic.com/learn",
       "title": "Anthropic Academy — Introduction to MCP",
+      "refresh_priority": "critical",
       "content_feature": "content_mcp",
       "affected_files": [
         "08_MCP_Fundamentals/01_what_is_mcp_protocol.md",
@@ -202,6 +214,7 @@
       "id": "platform_home",
       "url": "https://platform.claude.com/docs/en/home",
       "title": "Claude Developer Platform — Home",
+      "refresh_priority": "low",
       "content_feature": null,
       "affected_files": [],
       "sections_monitored": [
@@ -215,6 +228,7 @@
       "id": "platform_overview",
       "url": "https://platform.claude.com/docs/en/build-with-claude/overview",
       "title": "Features overview",
+      "refresh_priority": "low",
       "content_feature": null,
       "affected_files": [],
       "sections_monitored": [
